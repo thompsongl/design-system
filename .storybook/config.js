@@ -1,7 +1,14 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
+import { setOptions } from '@storybook/addon-options'
 import { injectGlobal } from 'styled-components'
 import { ThemeProvider, Box } from '../src'
+
+setOptions({
+  name: 'Design System',
+  url: 'https://pricelinelabs.github.io/design-system/',
+  showDownPanel: false
+})
 
 injectGlobal([], {
   '*': {

@@ -42,7 +42,7 @@ const Comparison = ({ keys }) => (
   </div>
 )
 
-storiesOf('Color', module)
+storiesOf('Theme/Color', module)
   .add('Palette', () => (
     <div>
       <Box p={3}>
