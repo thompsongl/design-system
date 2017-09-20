@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import { space, width, color } from 'styled-system'
 import PropTypes from 'prop-types'
+const align = responsiveStyle('text-align', 'align')
+const visibility = responsiveStyle('visibility', 'visibility')
 
 const Box = styled.div`
   ${space}
   ${width}
   ${color}
+  ${align}
+  ${visibility}
 `
 
 Box.displayName = 'Box'
