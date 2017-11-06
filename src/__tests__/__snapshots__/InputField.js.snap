@@ -375,6 +375,7 @@ exports[`InputField it renders a form field with a generic message 1`] = `
           color={undefined}
           fill="currentcolor"
           height={24}
+          innerRef={undefined}
           viewBox="0 0 20 21"
           width={24}
         >
@@ -557,6 +558,7 @@ exports[`InputField it renders a form field with an error message 1`] = `
           color="red"
           fill="currentcolor"
           height={24}
+          innerRef={undefined}
           viewBox="0 0 20 21"
           width={24}
         >
@@ -712,6 +714,7 @@ exports[`InputField it renders a form field wth a label and placeholder 1`] = `
           color={undefined}
           fill="currentcolor"
           height={24}
+          innerRef={undefined}
           viewBox="0 0 24 24"
           width={24}
         >

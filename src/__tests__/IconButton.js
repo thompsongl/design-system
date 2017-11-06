@@ -4,7 +4,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import 'jest-styled-components'
-import { IconButton, theme } from '..'
+import { IconButton, theme, ThemeProvider } from '..'
 
 describe('IconButton', () => {
   test('executes onClick prop on click', () => {

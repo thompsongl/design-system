@@ -52,6 +52,7 @@ exports[`IconButton renders with theme only 1`] = `
     color={undefined}
     fill="currentcolor"
     height={24}
+    innerRef={undefined}
     viewBox="0 0 20 19"
     width={24}
   >

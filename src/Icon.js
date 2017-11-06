@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import { space, color } from 'styled-system'
 import PropTypes from 'prop-types'
 import icons from '../icons.json'
@@ -11,15 +11,13 @@ const aliases = {
   chevronThick: icons.chevronDownThick
 }
 
-const getPath = ({ name, next }) => {
-  if (next) {
-    return icons[name]
-  }
-  return icons.legacy[name] || icons[name] || aliases[name]
-}
+const getPath = ({ name, theme = {} }) =>
+  theme.isLegacy
+    ? icons.legacy[name] || icons[name] || aliases[name]
+    : icons[name] || icons.legacy[name]
 
-const Base = ({ name, size, next, ...props }) => {
-  const icon = getPath({ name, next })
+const Base = withTheme(({ name, size, theme, ...props }) => {
+  const icon = getPath({ name, theme })
   if (!icon) return false
 
   return (
@@ -33,6 +31,10 @@ const Base = ({ name, size, next, ...props }) => {
       <path d={icon.path} />
     </svg>
   )
+})
+
+Base.defaultProps = {
+  theme: {}
 }
 
 const Icon = styled(Base)`
@@ -55,8 +57,7 @@ const allKeys = Object.keys({
 
 Icon.propTypes = {
   name: PropTypes.oneOf(allKeys).isRequired,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  next: PropTypes.bool
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export default Icon
