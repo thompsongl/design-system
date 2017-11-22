@@ -7,49 +7,71 @@ import theme from './theme'
 
 import styled from 'styled-components'
 
-const TooltipContent = styled(Box)`
-  // box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 8px 0 rgba(0, 0, 0, 0.08), 0 0 4px 0 rgba(0, 0, 0, 0.08);
-  // ${({ isVisible }) => !isVisible && 'visibility: hidden;'}
-  // background-color: ${({ bg }) => bg};
-  // color: ${({ color }) => color};
-  // // left: 20%; top: -10%;
-  // padding: 10px;
-  // padding: 5px 5px;
-  // position: relative;
-  // text-align: center;
-  // // transform: translate(0,-150%);
-  // // transition: opacity 0.2s;
-  // white-space: nowrap;
-  // z-index: 1;
+const arrowShadow = props => {
+  return (props.top) ?
+    {
+      'box-shadow': '-1.41px 1.41px 0 0 rgba(0,0,0,0.08), -9.66px 9.66px 8px 0 rgba(0,0,0,0.08), -16px 16px 16px 0 rgba(0,0,0,0.08), -32px 32px 32px 0 rgba(0, 0, 0, 0.08)'
+    } :
+    {
+      'box-shadow': '-1.41px 1.41px 0 0 rgba(0,0,0,0.01),-3.66px 3.66px 7px 0 rgba(0,0,0,0.04)'
+    }
+}
 
-  box-shadow: ${({theme}) => theme.boxShadows.slice(0, 3).join(', ')};
+const arrowAlign = props => {
+  return (props.left) ? { left: '16px', 'margin-left': (props.top) ? 0 : '15px' } :
+    (props.center) ? { left: '50%', 'margin-left': (props.top) ? '-7px' : '7px' } :
+      { right: '16px', 'margin-right': (props.top) ? '5px' : '-10px' }
+}
 
-  color: ${({ color }) => color};
+const arrowPosition = props => {
+  return (props.top) ?
+
+    {
+      'transform-origin': '0 0',
+      'transform': 'rotate(-45deg)',
+      'bottom': '-10px'
+    } :
+    {
+      'transform-origin': '0 0',
+      'transform': 'rotate(-225deg)',
+      'top': '0'
+    }
+}
+
+const arrow = props => {
+  return (props.top) ?
+    {
+      'transform-origin': '0 0',
+      'transform': 'rotate(-45deg)'
+    } :
+    {
+      'transform-origin': '0 0',
+      'transform': 'rotate(-225deg)'
+    }
+}
+
+const TooltipContent = styled(Box) `
+  display: inline;
+  box-shadow: ${({ theme }) => theme.boxShadows.slice(0, 4).join(', ')};
+  font-size: ${({ theme }) => theme.fontSizes[0]}px;
   position: relative;
-  margin: 3em;
-  padding: 1em;
+  border-radius: ${({ theme }) => theme.radii[1]}px;
   box-sizing: border-box;
-  background: ${({ bg }) => bg};
-  // box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
+  background: ${({ theme, bg }) => theme.colors[bg]};
 
   &::after{
     content: "";
     position: absolute;
     width: 0;
     height: 0;
-    margin-left: -0.5em;
-    bottom: -2em;
-    left: 50%;
-    box-sizing: border-box;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent ${({ theme, bg }) => theme.colors[bg]} ${({ bg }) => theme.colors[bg]};
 
-    border: 1em solid black;
-    border-color: transparent transparent ${({ bg }) => bg} ${({ bg }) => bg};
-
-    transform-origin: 0 0;
-    transform: rotate(-45deg);
-
-    box-shadow: -1.41px 1.41px 0 0 rgba(0,0,0,0.08), -9.66px 9.66px 8px 0 rgba(0,0,0,0.08), -16px 16px 16px 0 rgba(0,0,0,0.08);
-    // box-shadow: 0 0 4px 0 rgba(0,0,0,0.08),0 8px 8px 0 rgba(0,0,0,0.08),0 16px 16px 0 rgba(0,0,0,0.08);
+    ${arrow}
+    ${arrowPosition}
+    ${arrowAlign}
+    ${arrowShadow}
   }
 `
 
@@ -57,25 +79,30 @@ const propTypes = {
   children: PropTypes.any.isRequired,
   bg: PropTypes.string,
   color: PropTypes.string,
+  bottom: PropTypes.bool,
+  top: PropTypes.bool,
+  center: PropTypes.bool,
+  left: PropTypes.bool,
+  right: PropTypes.bool,
   isVisible: PropTypes.bool
 }
 
 const defaultProps = {
   position: 'bottom',
-  color: theme.colors.black,
-  bg: theme.colors.white,
+  color: 'text',
+  bg: 'white',
   width: 'auto',
   align: 'right',
-  renderContent: () => {}
+  renderContent: () => { }
 }
 
 class Tooltip extends React.Component {
 
-  render() {
+  render () {
     return (
-        <TooltipContent borderWidth={0} boxShadowSize={'lg'} {...this.props}>
-          {this.props.children}
-        </TooltipContent>
+      <TooltipContent p={2} my={0} mx={2} width={'auto'} {...this.props}>
+        {this.props.children}
+      </TooltipContent>
     )
   }
 }
