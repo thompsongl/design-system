@@ -17,9 +17,11 @@ const InfoBox = styled(Box)`
   box-shadow: 0 -1px 0 0 ${({ color }) => color};
 `
 
-const InputField = ({ id, label, color, icon, info, ...props }) => {
+const InputField = ({ id, label, color, icon, info, children, ...props }) => {
+
   return (
     <div>
+      {children}
       <Label htmlFor={id} pl={13}>
         {label}
       </Label>

@@ -18,9 +18,11 @@ const arrowShadow = props => {
 }
 
 const arrowAlign = props => {
-  return (props.left) ? { left: '16px', 'margin-left': (props.top) ? 0 : '15px' } :
-    (props.center) ? { left: '50%', 'margin-left': (props.top) ? '-7px' : '7px' } :
-      { right: '16px', 'margin-right': (props.top) ? '5px' : '-10px' }
+  return (props.left) ?
+  { left: '16px', 'margin-left': (props.top) ? 0 : '15px' } :
+  (props.center) ?
+    { left: '50%', 'margin-left': (props.top) ? '-7px' : '7px' } :
+    { right: '16px', 'margin-right': (props.top) ? '5px' : '-10px' }
 }
 
 const arrowPosition = props => {
@@ -50,14 +52,30 @@ const arrow = props => {
     }
 }
 
+const tooltipPosition = props => {
+  return (props.top) ? { bottom: 0 } : { top: 0 }
+}
+
+const tooltipAlign = props => {
+  return (props.right) ?
+    { right: 0 } :
+    (props.center) ?
+      {'left': '50%', 'width': 'auto', transform: 'translateX(-50%)'} :
+      // {} :
+      null
+}
+
 const TooltipContent = styled(Box) `
-  display: inline;
+  display: ${({ isVisible }) => (isVisible) ? 'inline' : 'none' };
   box-shadow: ${({ theme }) => theme.boxShadows.slice(0, 4).join(', ')};
   font-size: ${({ theme }) => theme.fontSizes[0]}px;
-  position: relative;
+  position: absolute;
   border-radius: ${({ theme }) => theme.radii[1]}px;
   box-sizing: border-box;
   background: ${({ theme, bg }) => theme.colors[bg]};
+
+  ${tooltipPosition}
+  ${tooltipAlign}
 
   &::after{
     content: "";
@@ -77,6 +95,7 @@ const TooltipContent = styled(Box) `
 
 const propTypes = {
   children: PropTypes.any.isRequired,
+  anchorRef: PropTypes.element,
   bg: PropTypes.string,
   color: PropTypes.string,
   bottom: PropTypes.bool,
@@ -91,18 +110,24 @@ const defaultProps = {
   position: 'bottom',
   color: 'text',
   bg: 'white',
-  width: 'auto',
   align: 'right',
   renderContent: () => { }
 }
 
 class Tooltip extends React.Component {
 
+  constructor() {
+    super()
+
+
+  }
   render () {
     return (
-      <TooltipContent p={2} my={0} mx={2} width={'auto'} {...this.props}>
-        {this.props.children}
-      </TooltipContent>
+      <div style={{position: 'relative'}}>
+        <TooltipContent p={2} mb={3} mt={2} {...this.props}>
+          {this.props.children}
+        </TooltipContent>
+      </div>
     )
   }
 }
