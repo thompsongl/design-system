@@ -21,4 +21,6 @@ Label.defaultProps = {
   theme: theme
 }
 
+Label.displayName = 'Label'
+
 export default Label
