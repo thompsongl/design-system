@@ -35,7 +35,7 @@ const Input = styled.input`
   padding-right: 12px;
 
   ::placeholder {
-    color: ${theme('colors.borderGray')};
+    color: ${theme('colors.gray')};
   }
 
   ::-ms-clear {
@@ -47,6 +47,7 @@ const Input = styled.input`
 
 Input.displayName = 'Input'
 Input.propTypes = {
+  id: PropTypes.string.isRequired,
   color: PropTypes.string,
   ...propTypes.borders,
   ...propTypes.space
