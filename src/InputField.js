@@ -9,74 +9,141 @@ import Label from './Label'
 import Input from './Input'
 import theme from './theme'
 
-const InfoBox = styled(Box)`
-  border-width: 1px;
-  border-radius: 0 0 2px 2px;
-  border-color: ${({ color }) => color};
-  border-style: solid;
-  box-shadow: 0 -1px 0 0 ${({ color }) => color};
-`
+class InputField extends React.Component {
+  render() {
+    const { color, label, icon, children, ...props } = this.props
 
-const InputField = ({ id, label, color, icon, info, children, ...props }) => {
+    let InputChild
+    let inputPosition
+    let LabelChild
+    let BeforeIcon
+    let AfterIcon
+    let inputId
 
-  return (
-    <div>
-      {children}
-      <Label htmlFor={id} pl={13}>
-        {label}
-      </Label>
-      <Flex align="center" width={1}>
-        <Input
-          id={id}
-          pt={20}
-          pb={8}
-          mt={-20}
-          width={1}
-          color={color}
-          pr={icon && 40}
-          aria-describedby={info && `${id}-info`}
-          {...props}
-        />
-        {icon && (
-          <Box ml={-40} mr={14} mt={-14}>
-            <Icon name={icon} color={color} />
-          </Box>
-        )}
-      </Flex>
-      {info && (
-        <InfoBox
-          width={1}
-          mb={-24}
-          color={theme.colors[color] || theme.colors.borderGray}
-          bg={theme.colors[color] || theme.colors.borderGray}
-        >
-          <Text
-            id={`${id}-info`}
-            bold
-            fontSize={10}
-            px={13}
-            py={1}
-            color={'white'}
-          >
-            {info}
-          </Text>
-        </InfoBox>
-      )}
-    </div>
-  )
+    if (children) {
+      children.forEach((child, index) => {
+        if (child.type === Label) {
+          LabelChild = child
+        }
+        if (child.type === Input) {
+          inputPosition = index
+          InputChild = child
+          inputId = child.props.id
+        }
+        if (child.type === Icon) {
+          if (!inputPosition) {
+            BeforeIcon = child
+          } else {
+            AfterIcon = child
+          }
+        }
+      })
+    }
+
+    // Handle old version on component's api
+    if (icon) {
+      AfterIcon = <Icon name={icon} />
+    }
+    if (label) {
+      LabelChild = <Label>{label}</Label>
+    }
+    if (!InputChild) {
+      InputChild = <Input />
+    }
+
+    return (
+      <Box>
+        {LabelChild &&
+          React.cloneElement(LabelChild, {
+            pl: BeforeIcon ? 40 : 2,
+            htmlFor: inputId
+          })}
+        <Flex align="center" width={1} mt={0}>
+          {BeforeIcon && (
+            <Box mr={-4} ml={2} mt={LabelChild ? -12 : 1}>
+              {BeforeIcon}
+            </Box>
+          )}
+          {React.cloneElement(InputChild, {
+            pt: LabelChild ? 20 : 14,
+            pb: LabelChild ? 8 : 14,
+            mt: LabelChild && -20,
+            pr: AfterIcon && 40,
+            pl: BeforeIcon ? 40 : 2,
+            width: 1,
+            color: color,
+            ...props
+          })}
+          {AfterIcon && (
+            <Box ml={-4} mt={LabelChild ? -12 : 1}>
+              {AfterIcon}
+            </Box>
+          )}
+        </Flex>
+      </Box>
+    )
+  }
 }
 
 InputField.propTypes = {
-  /** Id passed to the native input element. Necessary to set up aria-describedby and for attributes for accessibility.  */
-  id: PropTypes.string.isRequired,
-  /** Text to be used as the label for the input element. */
-  label: PropTypes.string.isRequired,
-  /** The optional icon that shows up on the right side of the element. */
-  icon: PropTypes.string,
+  children: function(props, propName, componentName) {
+    const prop = props[propName]
+    let inputCount = 0
+    let inputPosition = 0
+    let labelCount = 0
+    let firstIconPosition = -1
+    let secondIconPosition = 999
+    let iconCount = 0
+    React.Children.forEach(prop, function(child, index) {
+      switch (child.type) {
+        case Input:
+          inputPosition = index
+          inputCount++
+          break
+        case Icon:
+          if (iconCount === 0) {
+            firstIconPosition = index
+          } else {
+            secondIconPosition = index
+          }
+          iconCount++
+          break
+        case Label:
+          labelCount++
+          break
+        default:
+          return new Error(
+            `'${child.type}' is not a valid child for '${componentName}'`
+          )
+      }
+    })
+
+    if (!inputCount) {
+      return new Error(
+        `No 'Input' child found for '${componentName}'. Please update your component to use the compound version of this component and pass an 'Input' component as the child`
+      )
+    }
+    if (labelCount > 1) {
+      return new Error(
+        `Exactly 0 or 1 'Label' children should be supplied to '${componentName}'`
+      )
+    }
+    if (iconCount > 2) {
+      return new Error(
+        `Up to 2 'Icon' children are supported by '${componentName}'`
+      )
+    }
+    if (
+      iconCount === 2 &&
+      (firstIconPosition > inputPosition || secondIconPosition < inputPosition)
+    ) {
+      return new Error(
+        `If 2 'Icons' are provided, the 'Input' component must be positioned between them as children of '${componentName}'`
+      )
+    }
+  },
   /** Optional border and icon color. */
-  color: PropTypes.string,
-  /** Additional content to go in the info drawer below the element. This will be replaced by a tooltip later probably.  */
-  info: PropTypes.string
+  color: PropTypes.string
 }
 
 export default InputField

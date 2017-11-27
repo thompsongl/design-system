@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import styled from 'styled-components'
-import { Box, Flex, Text, InputField, Input } from '../src'
+import { Box, Flex, Text, InputField, Label, Input, Icon } from '../src'
 
 storiesOf('InputField', module)
   .add(
@@ -32,7 +32,107 @@ storiesOf('InputField', module)
     withInfo('Renders a styled Input element')(() => (
       <div>
         <Flex width={900}>
-          <Box width={1 / 2} pr={3}>
+          <Box width={1 / 2} pl={3}>
+            <Text bold pt={4} pb={2}>
+              Icon After
+            </Text>
+            <InputField>
+              <Label>Label</Label>
+              <Input
+                id="form-field-3"
+                pt={20}
+                pb={8}
+                mt={-20}
+                width={1}
+                placeholder="example@test.com"
+                pr={40}
+              />
+              <Icon name="plane" />
+            </InputField>
+          </Box>
+          <Box width={1 / 2} pl={3}>
+            <Text bold pt={4} pb={2}>
+              Icon Before
+            </Text>
+            <InputField>
+              <Label>Label</Label>
+              <Icon name="plane" />
+              <Input
+                id="form-field-3"
+                defaultValue="oliver.dumoulin@priceline.com"
+                placeholder="example@test.com"
+              />
+            </InputField>
+          </Box>
+        </Flex>
+        <Flex width={900}>
+          <Box width={1 / 2} pl={3}>
+            <Text bold pt={4} pb={2}>
+              Icon Before and After
+            </Text>
+            <InputField color="green">
+              <Label>Label</Label>
+              <Icon name="email" />
+              <Input
+                id="form-field-3"
+                defaultValue="oliver.dumoulin@priceline.com"
+              />
+              <Icon name="success" color="green" />
+            </InputField>
+          </Box>
+          <Box width={1 / 2} pl={3}>
+            <Text bold pt={4} pb={2}>
+              With no placeholder and no input
+            </Text>
+            <InputField color="green">
+              <Label pl={13}>Some Label</Label>
+              <Input id="form-field-3" />
+              <Icon name="success" color="green" />
+            </InputField>
+          </Box>
+        </Flex>
+        <Flex width={900}>
+          <Box width={1 / 2} pl={3}>
+            <Text bold pt={4} pb={2}>
+              No Label
+            </Text>
+            <InputField>
+              <Icon name="user" color="blue" />
+              <Input
+                id="form-field-3"
+                defaultValue="oliver.dumoulin@priceline.com"
+                placeholder="some input placeholder"
+              />
+              <Icon name="plane" />
+            </InputField>
+          </Box>
+          {/* <Box width={1 / 2} pl={3}>
+          <Text bold pt={4} pb={2}>
+            With no placeholder and no input
+            </Text>
+          <InputField
+            icon="checkLight"
+            label="Email Address"
+          >
+            <Label pl={13}>
+              Some Label
+            </Label>
+            <Input
+              id="form-field-3"
+              pt={20}
+              pb={8}
+              color="darkGreen"
+              mt={-20}
+              width={1}
+              pr={40}
+            />
+            <Icon name='plane' />
+          </InputField>
+        </Box> */}
+        </Flex>
+
+        <Flex width={900}>
+          <Box width={1 / 2} pl={3}>
             <Text bold pt={4} pb={2}>
               Credit Card
             </Text>
@@ -56,62 +156,36 @@ storiesOf('InputField', module)
             />
           </Box>
         </Flex>
-
-        <Flex width={900}>
-          <Box width={1 / 2} pr={3}>
-            <Text bold pt={4} pb={2}>
-              Unfocused Field
+        {/*
+      <Flex width={900}>
+        <Box width={1 / 2} pl={3}>
+          <Text bold pt={4} pb={2}>
+            Two Icons Before
             </Text>
-            <InputField
-              id="form-field-1"
-              label="First name"
-              defaultValue="Oliver"
-              placeholder="e.g. Oliver"
-            />
-          </Box>
-          <Box width={1 / 2} pl={3}>
-            <Text bold pt={4} pb={2}>
-              Focused Field or Passed Blue
-            </Text>
-            <InputField
-              id="form-field-2"
-              label="Last name"
-              defaultValue="Dumoulin"
-              placeholder="e.g. Dumoulin"
-              color="blue"
-            />
-          </Box>
-        </Flex>
-
-        <Flex width={900}>
-          <Box width={1 / 2} pr={3}>
-            <Text bold pt={4} pb={2}>
-              Validation Error
-            </Text>
-            <InputField
-              icon="circleInfo"
-              color="red"
-              info="Please enter a valid email address"
-              label="Email Address"
-              defaultValue="oliver.dumoulin@priceline.c"
+          <InputField
+            icon="checkLight"
+            color="darkGreen"
+            label="Email Address"
+            defaultValue="oliver.dumoulin@priceline.com"
+            id="form-field-3"
+            placeholder="example@test.com"
+          >
+            <Label pl={13}>
+              Label
+            </Label>
+            <Icon name='plane' />
+            <Icon name='shuttle' />
+            <Input
               id="form-field-3"
-              placeholder="example@test.com"
+              pt={20}
+              pb={8}
+              mt={-20}
+              width={1}
+              pr={40}
             />
-          </Box>
-          <Box width={1 / 2} pl={3}>
-            <Text bold pt={4} pb={2}>
-              Validation Success
-            </Text>
-            <InputField
-              icon="checkLight"
-              color="darkGreen"
-              label="Email Address"
-              defaultValue="oliver.dumoulin@priceline.com"
-              id="form-field-3"
-              placeholder="example@test.com"
-            />
-          </Box>
-        </Flex>
+          </InputField>
+        </Box>
+      </Flex> */}
       </div>
     ))
   )
