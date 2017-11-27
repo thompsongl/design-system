@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InputField it renders 1`] = `
-.c2 {
+.c1 {
+  margin-top: 0px;
   width: 100%;
   text-align: center;
 }
 
-.c1 {
+.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17,7 +18,7 @@ exports[`InputField it renders 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c2 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -36,60 +37,47 @@ exports[`InputField it renders 1`] = `
   padding-right: 12px;
   border-color: #d1d6db;
   box-shadow: 0 0 0 0 #d1d6db;
-  margin-top: -20px;
-  padding-bottom: 8px;
-  padding-top: 20px;
+  padding-bottom: 14px;
+  padding-left: 8px;
+  padding-top: 14px;
 }
 
-.c3::-webkit-input-placeholder {
-  color: #d1d6db;
+.c2::-webkit-input-placeholder {
+  color: #687B8E;
 }
 
-.c3::-moz-placeholder {
-  color: #d1d6db;
+.c2::-moz-placeholder {
+  color: #687B8E;
 }
 
-.c3:-ms-input-placeholder {
-  color: #d1d6db;
+.c2:-ms-input-placeholder {
+  color: #687B8E;
 }
 
-.c3::placeholder {
-  color: #d1d6db;
+.c2::placeholder {
+  color: #687B8E;
 }
 
-.c3::-ms-clear {
+.c2::-ms-clear {
   display: none;
 }
 
-.c3:focus {
+.c2:focus {
   outline: 0;
   border-color: #007aff;
   box-shadow: 0 0 0 1px #007aff;
 }
 
-.c0 {
-  font-size: 10px;
-  display: block;
-  width: 100%;
-  padding-left: 13px;
-  font-size: 10px;
-}
-
-<div>
-  <label
-    className="c0"
-    fontSize="10px"
-    htmlFor={undefined}
-  />
+<div
+  className=""
+>
   <div
-    className="c1 c2"
+    className="c0 c1"
     width={1}
   >
     <input
-      aria-describedby={undefined}
-      className="c3"
+      className="c2"
       color={undefined}
-      id={undefined}
       width={1}
     />
   </div>
@@ -98,6 +86,7 @@ exports[`InputField it renders 1`] = `
 
 exports[`InputField it renders a form field with a color prop 1`] = `
 .c2 {
+  margin-top: 0px;
   width: 100%;
   text-align: center;
 }
@@ -134,23 +123,24 @@ exports[`InputField it renders a form field with a color prop 1`] = `
   box-shadow: 0 0 0 0 #007aff;
   margin-top: -20px;
   padding-bottom: 8px;
+  padding-left: 8px;
   padding-top: 20px;
 }
 
 .c3::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-ms-clear {
@@ -165,17 +155,27 @@ exports[`InputField it renders a form field with a color prop 1`] = `
 
 .c0 {
   font-size: 10px;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
   display: block;
   width: 100%;
-  padding-left: 13px;
+  padding-left: 8px;
   font-size: 10px;
+  color: #687B8E;
+  font-weight: 600;
 }
 
-<div>
+<div
+  className=""
+>
   <label
     className="c0"
+    color="gray"
     fontSize="10px"
-    htmlFor="form-field-2"
+    fontWeight="bold"
+    htmlFor={undefined}
   >
     Last name
   </label>
@@ -184,7 +184,6 @@ exports[`InputField it renders a form field with a color prop 1`] = `
     width={1}
   >
     <input
-      aria-describedby={undefined}
       className="c3"
       color="blue"
       defaultValue="Dumoulin"
@@ -198,21 +197,14 @@ exports[`InputField it renders a form field with a color prop 1`] = `
 
 exports[`InputField it renders a form field with a generic message 1`] = `
 .c2 {
+  margin-top: 0px;
   width: 100%;
   text-align: center;
 }
 
 .c4 {
-  margin-left: -40px;
-  margin-right: 14px;
-  margin-top: -14px;
-}
-
-.c7 {
-  margin-bottom: -24px;
-  width: 100%;
-  color: #d1d6db;
-  background-color: #d1d6db;
+  margin-left: -32px;
+  margin-top: -12px;
 }
 
 .c1 {
@@ -224,16 +216,6 @@ exports[`InputField it renders a form field with a generic message 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.c8 {
-  font-size: 10px;
-  padding-left: 13px;
-  padding-right: 13px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  color: #fff;
-  font-weight: 600;
 }
 
 .c5 {
@@ -263,24 +245,25 @@ exports[`InputField it renders a form field with a generic message 1`] = `
   box-shadow: 0 0 0 0 #d1d6db;
   margin-top: -20px;
   padding-bottom: 8px;
+  padding-left: 8px;
   padding-right: 40px;
   padding-top: 20px;
 }
 
 .c3::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-ms-clear {
@@ -295,25 +278,27 @@ exports[`InputField it renders a form field with a generic message 1`] = `
 
 .c0 {
   font-size: 10px;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
   display: block;
   width: 100%;
-  padding-left: 13px;
+  padding-left: 8px;
   font-size: 10px;
+  color: #687B8E;
+  font-weight: 600;
 }
 
-.c6 {
-  border-width: 1px;
-  border-radius: 0 0 2px 2px;
-  border-color: #d1d6db;
-  border-style: solid;
-  box-shadow: 0 -1px 0 0 #d1d6db;
-}
-
-<div>
+<div
+  className=""
+>
   <label
     className="c0"
+    color="gray"
     fontSize="10px"
-    htmlFor="form-field-3"
+    fontWeight="bold"
+    htmlFor={undefined}
   >
     Email Address
   </label>
@@ -322,7 +307,6 @@ exports[`InputField it renders a form field with a generic message 1`] = `
     width={1}
   >
     <input
-      aria-describedby="form-field-3-info"
       className="c3"
       color={undefined}
       id="form-field-3"
@@ -334,7 +318,6 @@ exports[`InputField it renders a form field with a generic message 1`] = `
     >
       <svg
         className="c5"
-        color={undefined}
         fill="currentcolor"
         height={24}
         theme={
@@ -478,40 +461,19 @@ exports[`InputField it renders a form field with a generic message 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    className="c6 c7"
-    color="#d1d6db"
-    width={1}
-  >
-    <div
-      className="c8"
-      color="white"
-      fontSize={10}
-      id="form-field-3-info"
-    >
-      This is just some info
-    </div>
-  </div>
 </div>
 `;
 
 exports[`InputField it renders a form field with an error message 1`] = `
 .c2 {
+  margin-top: 0px;
   width: 100%;
   text-align: center;
 }
 
 .c4 {
-  margin-left: -40px;
-  margin-right: 14px;
-  margin-top: -14px;
-}
-
-.c7 {
-  margin-bottom: -24px;
-  width: 100%;
-  color: #c00;
-  background-color: #c00;
+  margin-left: -32px;
+  margin-top: -12px;
 }
 
 .c1 {
@@ -525,21 +487,10 @@ exports[`InputField it renders a form field with an error message 1`] = `
   align-items: center;
 }
 
-.c8 {
-  font-size: 10px;
-  padding-left: 13px;
-  padding-right: 13px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  color: #fff;
-  font-weight: 600;
-}
-
 .c5 {
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
-  color: #c00;
 }
 
 .c3 {
@@ -563,24 +514,25 @@ exports[`InputField it renders a form field with an error message 1`] = `
   box-shadow: 0 0 0 0 #c00;
   margin-top: -20px;
   padding-bottom: 8px;
+  padding-left: 8px;
   padding-right: 40px;
   padding-top: 20px;
 }
 
 .c3::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-ms-clear {
@@ -595,25 +547,27 @@ exports[`InputField it renders a form field with an error message 1`] = `
 
 .c0 {
   font-size: 10px;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
   display: block;
   width: 100%;
-  padding-left: 13px;
+  padding-left: 8px;
   font-size: 10px;
+  color: #687B8E;
+  font-weight: 600;
 }
 
-.c6 {
-  border-width: 1px;
-  border-radius: 0 0 2px 2px;
-  border-color: #c00;
-  border-style: solid;
-  box-shadow: 0 -1px 0 0 #c00;
-}
-
-<div>
+<div
+  className=""
+>
   <label
     className="c0"
+    color="gray"
     fontSize="10px"
-    htmlFor="form-field-3"
+    fontWeight="bold"
+    htmlFor={undefined}
   >
     Email Address
   </label>
@@ -622,7 +576,6 @@ exports[`InputField it renders a form field with an error message 1`] = `
     width={1}
   >
     <input
-      aria-describedby="form-field-3-info"
       className="c3"
       color="red"
       defaultValue="oliver.dumoulin@priceline.c"
@@ -635,7 +588,6 @@ exports[`InputField it renders a form field with an error message 1`] = `
     >
       <svg
         className="c5"
-        color="red"
         fill="currentcolor"
         height={24}
         theme={
@@ -779,33 +731,19 @@ exports[`InputField it renders a form field with an error message 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    className="c6 c7"
-    color="#c00"
-    width={1}
-  >
-    <div
-      className="c8"
-      color="white"
-      fontSize={10}
-      id="form-field-3-info"
-    >
-      Please enter a valid email address
-    </div>
-  </div>
 </div>
 `;
 
 exports[`InputField it renders a form field wth a label and placeholder 1`] = `
 .c2 {
+  margin-top: 0px;
   width: 100%;
   text-align: center;
 }
 
 .c4 {
-  margin-left: -40px;
-  margin-right: 14px;
-  margin-top: -14px;
+  margin-left: -32px;
+  margin-top: -12px;
 }
 
 .c1 {
@@ -846,24 +784,25 @@ exports[`InputField it renders a form field wth a label and placeholder 1`] = `
   box-shadow: 0 0 0 0 #d1d6db;
   margin-top: -20px;
   padding-bottom: 8px;
+  padding-left: 8px;
   padding-right: 40px;
   padding-top: 20px;
 }
 
 .c3::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c3::-ms-clear {
@@ -878,17 +817,27 @@ exports[`InputField it renders a form field wth a label and placeholder 1`] = `
 
 .c0 {
   font-size: 10px;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
   display: block;
   width: 100%;
-  padding-left: 13px;
+  padding-left: 8px;
   font-size: 10px;
+  color: #687B8E;
+  font-weight: 600;
 }
 
-<div>
+<div
+  className=""
+>
   <label
     className="c0"
+    color="gray"
     fontSize="10px"
-    htmlFor="form-field-3"
+    fontWeight="bold"
+    htmlFor={undefined}
   >
     Card number
   </label>
@@ -897,7 +846,6 @@ exports[`InputField it renders a form field wth a label and placeholder 1`] = `
     width={1}
   >
     <input
-      aria-describedby={undefined}
       className="c3"
       color={undefined}
       id="form-field-3"
@@ -909,7 +857,6 @@ exports[`InputField it renders a form field wth a label and placeholder 1`] = `
     >
       <svg
         className="c5"
-        color={undefined}
         fill="currentcolor"
         height={24}
         theme={

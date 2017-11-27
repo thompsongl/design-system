@@ -2,7 +2,16 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import styled from 'styled-components'
-import { Box, Flex, Text, InputField, Label, Input, Icon } from '../src'
+import {
+  Box,
+  Flex,
+  Text,
+  InputField,
+  Label,
+  Input,
+  Icon,
+  Tooltip
+} from '../src'
 
 storiesOf('InputField', module)
   .add(
@@ -91,6 +100,33 @@ storiesOf('InputField', module)
             </InputField>
           </Box>
         </Flex>
+        <Flex width={900}>
+          <Box width={1 / 2} pl={3}>
+            <Text bold pt={4} pb={2}>
+              Error
+            </Text>
+            <InputField color="red">
+              <Label>Email Address</Label>
+              <Icon name="email" color="red" />
+              <Input id="form-field-3" defaultValue="oliver.dumoulin@priceli" />
+              <Icon name="warning" color="red" />
+            </InputField>
+            <Tooltip isVisible bottom right bg="red" color="white">
+              Email Address is not valid
+            </Tooltip>
+          </Box>
+          <Box width={1 / 2} pl={3}>
+            <Text bold pt={4} pb={2}>
+              With no placeholder and no input
+            </Text>
+            <InputField color="green">
+              <Label pl={13}>Some Label</Label>
+              <Input id="form-field-3" />
+              <Icon name="success" color="green" />
+            </InputField>
+          </Box>
+        </Flex>
+
         <Flex width={900}>
           <Box width={1 / 2} pl={3}>
             <Text bold pt={4} pb={2}>

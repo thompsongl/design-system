@@ -23,19 +23,19 @@ exports[`Input it renders 1`] = `
 }
 
 .c0::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-ms-clear {
@@ -78,19 +78,19 @@ exports[`Input it renders an input element with a really large padding and margi
 }
 
 .c0::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-ms-clear {
@@ -131,19 +131,19 @@ exports[`Input it renders an input element with a red border with a color prop i
 }
 
 .c0::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-ms-clear {
@@ -185,19 +185,19 @@ exports[`Input it renders an input element with large text 1`] = `
 }
 
 .c0::-webkit-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-moz-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0:-ms-input-placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::placeholder {
-  color: #d1d6db;
+  color: #687B8E;
 }
 
 .c0::-ms-clear {
