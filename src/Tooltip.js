@@ -62,8 +62,7 @@ const tooltipAlign = props => {
     ? { right: 0 }
     : props.center
       ? { left: '50%', width: 'auto', transform: 'translateX(-50%)' }
-      : // {} :
-        null
+      : null
 }
 
 const TooltipContent = styled(Box)`
@@ -106,8 +105,7 @@ const defaultProps = {
   position: 'bottom',
   color: 'text',
   bg: 'white',
-  align: 'right',
-  renderContent: () => {}
+  align: 'right'
 }
 
 class Tooltip extends React.Component {
@@ -115,9 +113,10 @@ class Tooltip extends React.Component {
     super()
   }
   render() {
+    const { children, ...props } = this.props
     return (
       <div style={{ position: 'relative' }}>
-        <TooltipContent p={2} mb={3} mt={2} {...this.props}>
+        <TooltipContent p={2} mb={3} mt={2} {...props}>
           {this.props.children}
         </TooltipContent>
       </div>
