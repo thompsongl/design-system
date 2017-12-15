@@ -28,9 +28,9 @@ const aliases = {
 
 const getPath = ({ name, legacy }) => {
   if (!legacy) {
-    return icons[name] || icons.legacy[name]
+    return icons[name] || aliases[name] || icons.legacy[name]
   }
-  return icons.legacy[name] || icons[name] || aliases[name]
+  return icons.legacy[name] || aliases[name] || icons[name]
 }
 
 const Base = ({ name, size, legacy, ...props }) => {
