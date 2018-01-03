@@ -4,7 +4,7 @@ import { Icon } from '..'
 import icons from '../../icons.json'
 
 const keys = Object.keys(icons).filter(name => name !== 'legacy')
-const oldIcons = ['moon', 'amenityWifi', 'chevronThick']
+const oldIcons = ['moon', 'amenityWifi', 'chevronDownThick']
 
 describe('Icon', () => {
   keys.forEach(name => {
