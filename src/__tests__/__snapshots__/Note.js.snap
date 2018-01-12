@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note renders 1`] = `
+.c0 {
+  width: 100%;
+  min-height: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  font-size: 12px;
+  color: #687B8E;
+  background-color: #f6f8fa;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d1d6db;
+  padding: 8px;
+}
+
+<div
+  className="c0"
+/>
+`;
